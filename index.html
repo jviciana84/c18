@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C18 — Diseño & Desarrollo</title>
+  <meta name="description" content="C18. Diseño web por Adrià Moreno. Desarrollo por Erik Lundgren.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="glitchTarget">
+  <div class="smoke-effect" aria-hidden="true">
+    <span class="smoke-puff smoke-puff--1"></span>
+    <span class="smoke-puff smoke-puff--2"></span>
+    <span class="smoke-puff smoke-puff--3"></span>
+    <span class="smoke-puff smoke-puff--4"></span>
+    <span class="smoke-puff smoke-puff--5"></span>
+  </div>
+  <div class="cursor" id="cursor"></div>
+  <div class="start-overlay" id="startOverlay">
+    <video class="start-overlay__video" id="introVideo" muted playsinline loop>
+      <source src="intro.mp4" type="video/mp4">
+    </video>
+    <span class="start-overlay__text">Accede al estudio</span>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="before_the_dawn.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="audio-controls">
+    <button type="button" class="audio-theme-toggle" id="themeToggle" aria-label="Cambiar tema día/noche" title="Modo día / Modo noche">
+      <span class="audio-theme-toggle__sun" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </span>
+      <span class="audio-theme-toggle__moon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </span>
+    </button>
+    <span class="audio-datetime" id="audioDateTime" aria-hidden="true">00/00/0000 00:00:00:000</span>
+    <a href="#" class="audio-login" aria-label="Login">
+      <span class="audio-login__icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </span>
+      <span class="audio-login__text">Login</span>
+    </a>
+    <button type="button" class="audio-toggle" id="playBtn" aria-label="Reproducir / Pausar música" title="Reproducir / Pausar música">
+      <span class="audio-toggle__play"><span class="audio-toggle__icon">▶</span> Reproducir</span>
+      <span class="audio-toggle__pause"><span class="audio-toggle__icon">⏸</span> Pausar</span>
+    </button>
+    <div class="audio-volume">
+      <span class="audio-volume__icon">🔊</span>
+      <input type="range" class="audio-volume__slider" id="volumeSlider" min="0" max="100" value="3">
+    </div>
+  </div>
+
+  <header class="header">
+    <a href="#" class="logo">C18</a>
+    <nav class="nav">
+      <a href="#proyectos" data-section="proyectos">Proyectos</a>
+      <a href="#equipo" data-section="equipo">Equipo</a>
+      <a href="#contacto" data-section="contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__content">
+        <div class="hero__text">
+          <h1 class="hero__title">C18</h1>
+          <p class="hero__tagline">Diseño & Desarrollo digital</p>
+          <p class="hero__desc">Impulsa. Conecta. Escala.</p>
+          <p class="hero__desc">En C18, traducimos las necesidades de tu negocio al lenguaje del éxito digital. Olvida los tecnicismos; nosotros nos encargamos de la maquinaria para que tú solo te preocupes de crecer. Soluciones web 100% a medida, diseñadas no solo para ser vistas, sino para convencer.</p>
+          <p class="hero__desc">C18: Donde tu negocio se hace grande.</p>
+          <a href="#proyectos" class="hero__cta">Ver proyectos</a>
+        </div>
+        <div class="hero__cloud" id="heroCloud" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section id="proyectos" class="proyectos">
+      <h2 class="section__title">Proyectos</h2>
+      <div class="proyectos__grid">
+        <a href="https://www.controlvo.ovh" class="proyecto" target="_blank" rel="noopener">
+          <div class="proyecto__img">
+            <img src="images/proyecto-cvo.png" alt="Captura CVO - controlvo.ovh" onerror="this.onerror=null;this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='block'">
+            <div class="proyecto__placeholder" style="display:none"></div>
+          </div>
+          <h3 class="proyecto__titulo">CVO</h3>
+          <p class="proyecto__desc">Branding — Front End — Back End</p>
+        </a>
+        <a href="https://www.controlvo.ovh/soporte" class="proyecto" target="_blank" rel="noopener">
+          <div class="proyecto__img">
+            <img src="images/proyecto-soporte.png" alt="Captura Portal Soporte - controlvo.ovh/soporte" onerror="this.onerror=null;this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='block'">
+            <div class="proyecto__placeholder" style="display:none"></div>
+          </div>
+          <h3 class="proyecto__titulo">Portal Soporte</h3>
+          <p class="proyecto__desc">Branding — Front End — Back End</p>
+        </a>
+        <a href="https://controlvo.ovh/tasacion/wa7jt6wu" class="proyecto" target="_blank" rel="noopener">
+          <div class="proyecto__img">
+            <img src="images/proyecto-tasaciones.png" alt="Captura Portal Tasaciones - controlvo.ovh" onerror="this.onerror=null;this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='block'">
+            <div class="proyecto__placeholder" style="display:none"></div>
+          </div>
+          <h3 class="proyecto__titulo">Portal Tasaciones</h3>
+          <p class="proyecto__desc">Branding — Front End — Back End</p>
+        </a>
+        <a href="https://v0-creative-book-portal.vercel.app/" class="proyecto" target="_blank" rel="noopener">
+          <div class="proyecto__img">
+            <img src="images/proyecto-bosque.png" alt="El Bosque de las Estrellas" onerror="this.onerror=null;this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='block'">
+            <div class="proyecto__placeholder" style="display:none"></div>
+          </div>
+          <h3 class="proyecto__titulo">El Bosque de las Estrellas</h3>
+          <p class="proyecto__desc">Front End</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="equipo" class="equipo">
+      <h2 class="section__title">Equipo</h2>
+      <div class="equipo__grid">
+        <div class="equipo__card">
+          <span class="equipo__rol">Diseño · Dirección comercial</span>
+          <h3 class="equipo__nombre">Adrià Moreno</h3>
+          <p class="equipo__subtitulo">Brand Guardian & Business Developer</p>
+          <p class="equipo__bio">Nacido en Barcelona (2005) y criado en la era de la hiperconexión, Adrià combina una sólida base en marketing con un talento poco común: la escucha activa radical.</p>
+          <p class="equipo__bio">Antes de hablar de código o diseño, Adrià entiende el porqué de tu negocio. Ha liderado rebrandings completos basándose en una premisa simple: la tecnología sin alma no vende. Su rol es actuar como el puente entre tus objetivos comerciales y nuestra ejecución técnica. Es capaz de coger una idea difusa en una servilleta y convertirla en una estrategia digital sólida. Quien se sienta con él, no siente que le están vendiendo, siente que le están entendiendo y potenciando.</p>
+        </div>
+        <div class="equipo__card">
+          <span class="equipo__rol">Desarrollo</span>
+          <h3 class="equipo__nombre">Erik Lundgren</h3>
+          <p class="equipo__subtitulo">CTO & Lead Full Stack Developer</p>
+          <p class="equipo__bio">Criado en el frío tecnológico del norte de Suecia (Luleå, 1984), Erik lleva escribiendo código desde antes de que existieran las redes sociales. Con una mentalidad lógica forjada en Luleå y más de 15 años de experiencia, domina el espectro completo del desarrollo web, desde la infraestructura más compleja en el back-end hasta la interacción más fluida en el front-end.</p>
+          <p class="equipo__bio">Es el mago detrás del telón. Su rol es claro: hacer posible lo imposible. Cuando Adrià detecta una oportunidad o imagina una funcionalidad visualmente impactante, Erik es quien diseña la arquitectura para que funcione sin fallos. Si se puede imaginar, Erik lo puede programar. Es la garantía de que detrás de un diseño bonito, hay un motor blindado.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="contacto">
+      <h2 class="section__title">Contacto</h2>
+      <p class="contacto__texto">¿Tienes un proyecto en mente?</p>
+      <div class="contacto__row">
+        <button type="button" class="contacto__cta" id="abrirFormulario">Explícanoslo!</button>
+        <div class="contacto__card">
+          <div class="contacto__card-inner">
+            <p class="contacto__card-nombre">Adrià Moreno</p>
+            <div class="contacto__card-datos">
+              <a href="tel:+34654354646" class="contacto__card-link">+34 654 354 646</a>
+              <a href="mailto:hola@c18.ovh" class="contacto__card-link">hola@c18.ovh</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <div class="form-overlay" id="formOverlay">
+    <div class="form-modal" id="formModal">
+      <button type="button" class="form-modal__cerrar" id="cerrarFormulario" aria-label="Cerrar">×</button>
+      <div class="form-modal__content" id="formContent">
+      <h3 class="form-modal__titulo">Cuéntanos tu proyecto</h3>
+      <form class="form-contacto" id="formContacto">
+        <div class="form__campo">
+          <label for="nombre">Nombre / Empresa</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre o nombre de la empresa">
+        </div>
+        <div class="form__campo">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="tu@email.com">
+        </div>
+        <div class="form__campo">
+          <label for="tipoNegocio">Tipo de negocio</label>
+          <div class="form__select-wrapper">
+            <input type="text" class="form__select-search" id="tipoNegocioSearch" placeholder="Buscar o seleccionar..." autocomplete="off">
+            <div class="form__select-options" id="tipoNegocioOptions">
+              <div class="form__select-option" data-value="Retail">Retail</div>
+              <div class="form__select-option" data-value="E-commerce">E-commerce</div>
+              <div class="form__select-option" data-value="Servicios profesionales">Servicios profesionales</div>
+              <div class="form__select-option" data-value="Restauración">Restauración</div>
+              <div class="form__select-option" data-value="Salud">Salud</div>
+              <div class="form__select-option" data-value="Educación">Educación</div>
+              <div class="form__select-option" data-value="Inmobiliaria">Inmobiliaria</div>
+              <div class="form__select-option" data-value="Tecnología">Tecnología</div>
+              <div class="form__select-option" data-value="Agencia / Marketing">Agencia / Marketing</div>
+              <div class="form__select-option" data-value="Startup">Startup</div>
+              <div class="form__select-option" data-value="Automoción">Automoción</div>
+              <div class="form__select-option" data-value="Hostelería">Hostelería</div>
+              <div class="form__select-option" data-value="Construcción">Construcción</div>
+              <div class="form__select-option" data-value="Otro">Otro</div>
+            </div>
+          </div>
+          <input type="hidden" name="tipoNegocio" id="tipoNegocio" required>
+        </div>
+        <div class="form__campo form__campo--mensaje">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+        </div>
+        <div class="form__captcha">
+          <label class="form__captcha-box">
+            <input type="checkbox" name="captcha" required>
+            <span class="form__captcha-check">✓</span>
+            <span class="form__captcha-text">No soy un robot</span>
+          </label>
+        </div>
+        <div class="form__campo form__privacidad">
+          <label class="form__privacidad-box">
+            <input type="checkbox" name="privacidad" required>
+            <span class="form__privacidad-check">✓</span>
+            <span class="form__privacidad-text">He leído y acepto la <a href="#" class="form__link">Política de Privacidad</a>.</span>
+          </label>
+        </div>
+        <button type="submit" class="form__enviar">Enviar</button>
+      </form>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="form-success__icon">✓</div>
+        <p class="form-success__titulo">¡Gracias!</p>
+        <p class="form-success__texto">Te contactaremos pronto.</p>
+      </div>
+    </div>
+  </div>
+  </main>
+
+  <footer class="footer">
+    <span class="footer__logo">C18</span>
+    <span class="footer__credits">Impulsa. Conecta. Escala.</span>
+    <span class="footer__copy">© <span id="year"></span></span>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
