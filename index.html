@@ -3,14 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C18 — Diseño & Desarrollo</title>
-  <meta name="description" content="C18. Diseño web por Adrià Moreno. Desarrollo por Erik Lundgren.">
+  <title>C18 — Creación de Webs y Diseño Digital en Catalunya | Agencia Barcelona</title>
+  <meta name="description" content="C18 es la agencia de creación de webs líder en Catalunya. Diseño web a medida, branding y desarrollo full stack en Barcelona. Impulsa tu negocio con soluciones digitales que convierten. Contacta: hola@c18.ovh">
+  <meta name="keywords" content="crear web Catalunya, agencia web Barcelona, diseño web Catalunya, desarrollo web Barcelona, agencia digital Catalunya, crear página web Barcelona, diseño y desarrollo web, branding digital, full stack developer Catalunya, soluciones web a medida">
+  <meta name="author" content="C18 - Adrià Moreno & Erik Lundgren">
+  <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="ES-CT">
+  <meta name="geo.placename" content="Barcelona, Catalunya">
+  <meta name="geo.position" content="41.3874;2.1686">
+  <meta name="ICBM" content="41.3874, 2.1686">
+  <link rel="canonical" href="https://c18.ovh/">
+  <meta name="theme-color" content="#050810">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://c18.ovh/">
+  <meta property="og:title" content="C18 — Creación de Webs y Diseño Digital en Catalunya">
+  <meta property="og:description" content="Agencia de creación de webs y diseño digital líder en Catalunya. Diseño web a medida, branding y desarrollo full stack en Barcelona. Soluciones digitales que convierten.">
+  <meta property="og:image" content="https://c18.ovh/images/og-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="ca_ES">
+  <meta property="og:site_name" content="C18 - Diseño & Desarrollo Digital">
+  <meta property="og:email" content="hola@c18.ovh">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://c18.ovh/">
+  <meta name="twitter:title" content="C18 — Creación de Webs y Diseño Digital en Catalunya">
+  <meta name="twitter:description" content="Agencia de creación de webs líder en Catalunya. Diseño web a medida, branding y desarrollo full stack en Barcelona.">
+  <meta name="twitter:image" content="https://c18.ovh/images/og-share.png">
+  <meta name="twitter:creator" content="@c18_ovh">
+
+  <!-- Schema.org JSON-LD: Organización y LocalBusiness para SEO Catalunya -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://c18.ovh/#organization",
+        "name": "C18",
+        "url": "https://c18.ovh",
+        "logo": "https://c18.ovh/images/logo.png",
+        "description": "Agencia de creación de webs y diseño digital en Catalunya. Diseño web a medida, branding y desarrollo full stack en Barcelona.",
+        "email": "hola@c18.ovh",
+        "foundingDate": "2024",
+        "slogan": "Impulsa. Conecta. Escala.",
+        "sameAs": []
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://c18.ovh/#localbusiness",
+        "name": "C18 - Creación de Webs Catalunya",
+        "image": "https://c18.ovh/images/og-share.png",
+        "url": "https://c18.ovh",
+        "telephone": "+34654354646",
+        "email": "hola@c18.ovh",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Catalunya",
+          "addressLocality": "Barcelona",
+          "addressCountry": "ES"
+        },
+        "areaServed": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 41.3874,
+            "longitude": 2.1686
+          },
+          "geoRadius": "50000"
+        },
+        "priceRange": "$$",
+        "description": "Agencia líder en creación de webs en Catalunya. Diseño web a medida, branding, front end y back end. Especialistas en soluciones digitales para empresas en Barcelona y toda Cataluña.",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        "parentOrganization": { "@id": "https://c18.ovh/#organization" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://c18.ovh/#website",
+        "url": "https://c18.ovh",
+        "name": "C18 - Creación de Webs Catalunya",
+        "description": "Agencia de creación de webs y diseño digital líder en Catalunya. Diseño web a medida en Barcelona.",
+        "publisher": { "@id": "https://c18.ovh/#organization" },
+        "inLanguage": ["es", "ca"]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body id="glitchTarget">
+<body>
   <div class="smoke-effect" aria-hidden="true">
     <span class="smoke-puff smoke-puff--1"></span>
     <span class="smoke-puff smoke-puff--2"></span>
@@ -60,7 +155,7 @@
   </div>
 
   <header class="header">
-    <a href="#" class="logo">C18</a>
+    <a href="#" class="logo" id="headerLogo" data-text="C18">C18</a>
     <nav class="nav">
       <a href="#proyectos" data-section="proyectos">Proyectos</a>
       <a href="#equipo" data-section="equipo">Equipo</a>
@@ -72,7 +167,7 @@
     <section class="hero">
       <div class="hero__content">
         <div class="hero__text">
-          <h1 class="hero__title">C18</h1>
+          <h1 class="hero__title" id="heroTitle" data-text="C18">C18</h1>
           <p class="hero__tagline">Diseño & Desarrollo digital</p>
           <p class="hero__desc">Impulsa. Conecta. Escala.</p>
           <p class="hero__desc">En C18, traducimos las necesidades de tu negocio al lenguaje del éxito digital. Olvida los tecnicismos; nosotros nos encargamos de la maquinaria para que tú solo te preocupes de crecer. Soluciones web 100% a medida, diseñadas no solo para ser vistas, sino para convencer.</p>
@@ -144,14 +239,45 @@
     <section id="contacto" class="contacto">
       <h2 class="section__title">Contacto</h2>
       <p class="contacto__texto">¿Tienes un proyecto en mente?</p>
-      <div class="contacto__row">
-        <button type="button" class="contacto__cta" id="abrirFormulario">Explícanoslo!</button>
-        <div class="contacto__card">
-          <div class="contacto__card-inner">
-            <p class="contacto__card-nombre">Adrià Moreno</p>
-            <div class="contacto__card-datos">
-              <a href="tel:+34654354646" class="contacto__card-link">+34 654 354 646</a>
-              <a href="mailto:hola@c18.ovh" class="contacto__card-link">hola@c18.ovh</a>
+      <div class="contacto__grid">
+        <div class="contacto__col contacto__col--cta">
+          <div class="contacto__cta-wrapper">
+            <button type="button" class="contacto__cta" id="abrirFormulario">Explícanoslo!</button>
+            <div class="contacto__badges">
+            <span class="contacto__badge"><span class="contacto__badge-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>100% Online · Videoconferencia</span>
+            <span class="contacto__badge"><span class="contacto__badge-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>Presupuesto sin compromiso</span>
+          </div>
+          </div>
+        </div>
+        <div class="contacto__cards">
+          <div class="contacto__card contacto__card--principal">
+            <div class="contacto__card-glow" aria-hidden="true"></div>
+            <div class="contacto__card-inner">
+              <span class="contacto__card-rol">Diseño · Dirección comercial</span>
+              <p class="contacto__card-nombre">Adrià Moreno</p>
+              <div class="contacto__card-datos">
+                <a href="tel:+34654354646" class="contacto__card-link">
+                  <span class="contacto__card-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+                  +34 654 354 646
+                </a>
+                <a href="mailto:hola@c18.ovh" class="contacto__card-link">
+                  <span class="contacto__card-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+                  hola@c18.ovh
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="contacto__card contacto__card--principal">
+            <div class="contacto__card-glow" aria-hidden="true"></div>
+            <div class="contacto__card-inner">
+              <span class="contacto__card-rol">Desarrollo técnico</span>
+              <p class="contacto__card-nombre">Erik Lundgren</p>
+              <div class="contacto__card-datos">
+                <a href="mailto:hola@c18.ovh" class="contacto__card-link">
+                  <span class="contacto__card-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+                  hola@c18.ovh
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -226,7 +352,7 @@
   </main>
 
   <footer class="footer">
-    <span class="footer__logo">C18</span>
+    <span class="footer__logo" id="footerLogo" data-text="C18">C18</span>
     <span class="footer__credits">Impulsa. Conecta. Escala.</span>
     <span class="footer__copy">© <span id="year"></span></span>
   </footer>

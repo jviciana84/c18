@@ -1,13 +1,14 @@
 // Año automático en el footer
 document.getElementById('year').textContent = new Date().getFullYear()
 
-// Tema día/noche: 19:00–08:00 = noche, resto = día
+// Tema: móvil siempre oscuro; escritorio 19:00–08:00 = noche, resto = día
 const THEME_KEY = 'c18-theme'
+const isMobile = () => window.matchMedia('(max-width: 600px)').matches
 const isNightTime = () => {
   const h = new Date().getHours()
   return h >= 19 || h < 8
 }
-const getDefaultTheme = () => isNightTime() ? 'dark' : 'light'
+const getDefaultTheme = () => (isMobile() || isNightTime()) ? 'dark' : 'light'
 
 function setTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme)
@@ -27,14 +28,15 @@ document.getElementById('themeToggle')?.addEventListener('click', () => {
 })
 
 // Al cargar, ir al encabezado (inicio) si no hay hash en la URL
-if (!window.location.hash) {
-  window.scrollTo(0, 0)
+const mainScroll = document.querySelector('main')
+if (mainScroll && !window.location.hash) {
+  mainScroll.scrollTo(0, 0)
 }
 
 // Logo C18: clic lleva al inicio
 document.querySelector('.logo')?.addEventListener('click', (e) => {
   e.preventDefault()
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  mainScroll?.scrollTo({ top: 0, behavior: 'smooth' })
 })
 
 // Fecha y hora en vivo (DD/MM/AAAA HH:MM:SS:MS)
@@ -197,7 +199,7 @@ if (cursor && window.matchMedia('(pointer: fine)').matches) {
     requestAnimationFrame(animate)
   }
   animate()
-  document.querySelectorAll('a, button, .proyecto, .audio-toggle, .audio-controls, .start-overlay, .contacto__cta, .form-overlay').forEach(el => {
+  document.querySelectorAll('a, button, .proyecto, .equipo__card, .audio-toggle, .audio-controls, .start-overlay, .contacto__cta, .contacto__card, .form-overlay').forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('hover'))
     el.addEventListener('mouseleave', () => cursor.classList.remove('hover'))
   })
@@ -218,7 +220,7 @@ const observer = new IntersectionObserver((entries) => {
   })
 }, observerOptions)
 
-document.querySelectorAll('.proyecto').forEach(el => observer.observe(el))
+document.querySelectorAll('.proyecto, .contacto__card').forEach(el => observer.observe(el))
 
 // Indicador de sección activa en el nav
 const sections = document.querySelectorAll('section[id]')
@@ -237,15 +239,47 @@ const navObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(section => navObserver.observe(section))
 
-// Glitch cada 45 segundos
-const glitchTarget = document.getElementById('glitchTarget')
-if (glitchTarget) {
-  setInterval(() => {
-    glitchTarget.classList.remove('glitch')
-    void glitchTarget.offsetWidth
-    glitchTarget.classList.add('glitch')
-    setTimeout(() => glitchTarget.classList.remove('glitch'), 400)
-  }, 45000)
+// Glitch RGB en C18: al entrar + cada 15s (para verlo tras "Acceder al estudio")
+function triggerGlitch() {
+  const heroTitle = document.getElementById('heroTitle')
+  if (!heroTitle) return
+  heroTitle.classList.remove('glitch')
+  void heroTitle.offsetWidth
+  heroTitle.classList.add('glitch')
+  setTimeout(() => heroTitle.classList.remove('glitch'), 400)
+}
+
+const heroTitle = document.getElementById('heroTitle')
+if (heroTitle) {
+  startOverlay?.addEventListener('click', () => {
+    setTimeout(triggerGlitch, 800) // glitch al entrar al estudio
+  })
+  setInterval(triggerGlitch, 15000) // cada 15 segundos
+}
+
+// Glitch en header y footer: cada 15 segundos (desfase 15s entre uno y otro)
+function triggerLogoGlitch(el) {
+  if (!el) return
+  el.classList.remove('glitch')
+  void el.offsetWidth
+  el.classList.add('glitch')
+  setTimeout(() => el.classList.remove('glitch'), 300)
+}
+
+const GLITCH_INTERVAL = 15000
+const headerLogo = document.getElementById('headerLogo')
+const footerLogo = document.getElementById('footerLogo')
+if (headerLogo && footerLogo) {
+  triggerLogoGlitch(headerLogo)
+  setInterval(() => triggerLogoGlitch(headerLogo), GLITCH_INTERVAL)
+  setTimeout(() => {
+    triggerLogoGlitch(footerLogo)
+    setInterval(() => triggerLogoGlitch(footerLogo), GLITCH_INTERVAL)
+  }, GLITCH_INTERVAL)
+} else if (headerLogo) {
+  setInterval(() => triggerLogoGlitch(headerLogo), GLITCH_INTERVAL)
+} else if (footerLogo) {
+  setInterval(() => triggerLogoGlitch(footerLogo), GLITCH_INTERVAL)
 }
 
 // Formulario de contacto

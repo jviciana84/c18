@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>C18 - Generar OG Share</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1200px;
+      height: 630px;
+      background: #050810;
+      font-family: 'Syne', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 40px;
+    }
+    .logo {
+      font-size: 120px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .tagline {
+      font-size: 32px;
+      font-weight: 400;
+      color: #b0b0b0;
+      margin-top: 20px;
+      letter-spacing: 0.02em;
+    }
+    .hint {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 12px;
+      color: #555;
+      font-family: system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <span class="logo">C18</span>
+  <span class="tagline">Diseño &amp; Desarrollo digital</span>
+  <script>
+    // Generar PNG con tipografía Syne real (igual que la web)
+    document.fonts.ready.then(() => {
+      const canvas = document.createElement('canvas');
+      canvas.width = 1200;
+      canvas.height = 630;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#050810';
+      ctx.fillRect(0, 0, 1200, 630);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '700 120px "Syne", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('C18', 600, 280);
+      ctx.fillStyle = '#b0b0b0';
+      ctx.font = '400 32px "Syne", sans-serif';
+      ctx.fillText('Diseño & Desarrollo digital', 600, 360);
+      const a = document.createElement('a');
+      a.download = 'og-share.png';
+      a.href = canvas.toDataURL('image/png');
+      a.textContent = '↓ Descargar og-share.png (tipografía Syne real)';
+      a.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:12px 24px;background:rgba(138,43,226,0.9);color:white;border-radius:8px;cursor:pointer;text-decoration:none;font-family:system-ui,sans-serif;font-size:14px';
+      document.body.appendChild(a);
+    });
+  </script>
+</body>
+</html>
